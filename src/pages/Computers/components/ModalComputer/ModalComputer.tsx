@@ -1,51 +1,54 @@
-import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react';
-import React from 'react';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import React, { useRef } from 'react';
 import { IoMdAddCircle } from 'react-icons/io';
+import Slide from '@mui/material/Slide';
+
 export interface ModalComputerInterface {}
-
+{/* */}
+import { TransitionProps } from '@mui/material/transitions';
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 const ModalComputer : React.FC<ModalComputerInterface> = () => {
-	const { isOpen, onOpen, onClose } = useDisclosure()
+  const [open, setOpen] = React.useState(false);
 
-  const initialRef = React.useRef(null)
-  const finalRef = React.useRef(null)
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
-     
-      <Button w={300}  onClick={onOpen} leftIcon={<IoMdAddCircle size={25}/>} colorScheme='twitter' variant='solid'>
-        Agregar nueva computadora
+   <div>
+      <Button variant="contained" onClick={handleClickOpen}>
+        Añadir nueva computadora
       </Button>
-
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
       >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Agregar nueva computadora</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder='First name' />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder='Last name' />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
-              Save
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+        <DialogTitle>{"Añadir nueva computadora"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            ¿Esta seguro de que desea añadir una nueva computadora?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant='outlined' color='error' onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleClose} variant='contained' color='success' >Añadir</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
     </>
   )
 };

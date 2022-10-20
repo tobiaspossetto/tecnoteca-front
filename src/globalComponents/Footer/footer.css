@@ -1,0 +1,23 @@
+.footer-container {
+    width: 100%;
+    height: 180px;
+  
+}
+.colors-container{
+    width: 100%;
+    height: 8px;
+    display: flex;
+
+}
+.colorModule{
+    
+    height: 100%;
+    width: 16.6%;
+}
+
+.info-container{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

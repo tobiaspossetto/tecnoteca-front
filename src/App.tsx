@@ -11,6 +11,8 @@ import { FaBeer } from "react-icons/fa";
 import { Navbar } from "./globalComponents/Navbar";
 import styled from "styled-components";
 import { background } from "@chakra-ui/react";
+import { Footer } from "./globalComponents/Footer";
+import { Avatar } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -18,12 +20,7 @@ interface TabPanelProps {
   value: number;
 }
 
-const AppDiv = styled.div`
-    width: 100vw;
-    height: 100vh;
-        
 
-`;
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -60,20 +57,29 @@ function App() {
   return (
     <>
       
-      <AppDiv className="App" >
+      <div className="App" >
         <Navbar />
-       
+        
+     
+  {/* <div style={{
+    backgroundRepeat: 'no-repeat',
+    backgroundSize:"cover",
+    backgroundPosition: "bottom",
+    backgroundAttachment: "fixed",
+    width:"100%", height:"700px", backgroundImage:"url('https://arqa.com/wp-content/uploads/2022/07/sergio-panigo-_71s8307.jpg')"}} /> */}
 
         <Box sx={{ width: '100%' }}>
       <Box  sx={{boxShadow: 2 , borderBottom: 1, borderColor: 'divider', backgroundColor:'orange'}}>
-        <Tabs variant="fullWidth" value={value} onChange={handleChange}  sx={{p:'10px'}} aria-label="basic tabs example">
+        <Tabs variant="fullWidth"  value={value} onChange={handleChange}  sx={{p:'10px'}} aria-label="basic tabs example">
           <Tab label="Computadoras" {...a11yProps(0)} sx={{color:'white', fontWeight:'400', fontSize:'20px'}}/>
           <Tab label="Salas" {...a11yProps(1)} sx={{color:'white', fontWeight:'400', fontSize:'20px'}} />
           <Tab label="VR BOX" {...a11yProps(2)} sx={{color:'white', fontWeight:'400', fontSize:'20px'}}/>
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-  <Computers/>
+  
+      <Computers/>
+      
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -82,7 +88,8 @@ function App() {
         Item Three
       </TabPanel>
     </Box>
-      </AppDiv>
+    <Footer/>
+      </div>
     
   
     </>

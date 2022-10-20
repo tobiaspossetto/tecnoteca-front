@@ -2,18 +2,24 @@ import { Button, Stack } from "@chakra-ui/react";
 import React from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import { ListComputers } from "./components/ListComputers";
+import { ListReservas } from "./components/ListReservas";
 import { ModalComputer } from "./components/ModalComputer";
+import { ModalRequerirCompu } from "./components/ModalRequerirCompu";
 export interface ComputersInterface {}
 
 const Computers: React.FC<ComputersInterface> = () => {
   return (
-    <Stack>
-      <Stack direction="row" spacing={4}></Stack>
-      <Stack align="center">
+    <div style={{minHeight: "calc(100vh - 150px - 180px)", width:"100%"}}>
+     <div style={{margin:"50px"}}>
+      <ModalRequerirCompu/>
+     </div>
+     <ListReservas/>
+      <div  style={{margin:"50px"}}>
         <ModalComputer />
-      </Stack>
+      </div>
       <ListComputers />
-    </Stack>
+      
+    </div>
   );
 };
 

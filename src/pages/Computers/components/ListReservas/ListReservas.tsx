@@ -71,7 +71,7 @@ const ListReservas : React.FC<ListReservasInterface> = () => {
             disableSelectionOnClick
             autoHeight
             pageSize={5}
-            rowsPerPageOptions={[4]}
+            rowsPerPageOptions={[5]}
             rows={reservasCompus}
             columns={columns}
             getRowId={(row: any) => row.id}

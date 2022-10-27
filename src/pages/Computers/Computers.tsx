@@ -9,7 +9,7 @@ export interface ComputersInterface {}
 
 const Computers: React.FC<ComputersInterface> = () => {
   return (
-    <div style={{minHeight: "calc(100vh - 150px - 180px)", width:"100%"}}>
+    <div style={{minHeight: "calc(100vh - 150px - 140px)", width:"100%"}}>
      <div style={{margin:"50px"}}>
       <ModalRequerirCompu/>
      </div>

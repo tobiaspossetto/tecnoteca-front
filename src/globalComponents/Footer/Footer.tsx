@@ -37,19 +37,19 @@ const Footer: React.FC<FooterInterface> = () => {
           variant="square"
           alt="Municipalidad Logo"
           src="http://www.sanfrancisco.gov.ar/imagenes/estructura/img_logo_gestion.png"
-          sx={{ width: "auto", height: "auto" }}
+          sx={{ width: "260px", height: "auto" }}
         />
 		<div>
 		<Typography
           variant="h4"
-          style={{ fontWeight: "500", fontSize: "18px", textAlign: "right", width: "auto"}}
+          style={{ fontWeight: "500", fontSize: "14px", textAlign: "right", width: "auto"}}
           component="p"
         >
           Bv. 9 de Julio 1187 San Francisco, Córdoba, Argentina
         </Typography>
 		<Typography
           variant="h4"
-          style={{ fontWeight: "500", fontSize: "18px", textAlign: "right", width: "auto"}}
+          style={{ fontWeight: "500", fontSize: "14px", textAlign: "right", width: "auto"}}
           component="p"
         >
          (+54) 03564
@@ -57,7 +57,7 @@ const Footer: React.FC<FooterInterface> = () => {
         </Typography>
 		<Typography
           variant="h4"
-          style={{ fontWeight: "500", fontSize: "18px", textAlign: "right", width: "auto"}}
+          style={{ fontWeight: "500", fontSize: "14px", textAlign: "right", width: "auto"}}
           component="p"
         >
         prensa@sanfrancisco.gov.ar

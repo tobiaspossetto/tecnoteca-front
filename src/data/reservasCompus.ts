@@ -1,4 +1,7 @@
-export const reservasCompus = [
+
+import { IComputer, IComputerReservation } from '../models/computer';
+
+export const reservasCompus:IComputerReservation[] = [
     {
         id: '1',
         
@@ -6,7 +9,7 @@ export const reservasCompus = [
         nombreUsuario:"pedro",
         fechaDeInicio:"20/10/22",
         horaDeInicio:"12:30",
-        horaDeFinalizacion:"14:20",
+       idComputadora:["es234", "323"],
         cantidadDeComputadoras:1,
         dni:234234,
         motivo:"Lorem Impsun Dolor"
@@ -18,7 +21,7 @@ export const reservasCompus = [
         nombreUsuario:"Juan",
         fechaDeInicio:"20/10/22",
         horaDeInicio:"12:30",
-        horaDeFinalizacion:"14:20",
+       idComputadora:"es234",
         cantidadDeComputadoras:1,
         dni:234234,
         motivo:"Lorem Impsun Dolor"
@@ -30,7 +33,7 @@ export const reservasCompus = [
         nombreUsuario:"Sandra",
         fechaDeInicio:"20/10/22",
         horaDeInicio:"12:30",
-        horaDeFinalizacion:"14:20",
+       idComputadora:"es234",
         cantidadDeComputadoras:3,
         dni:234234,
         motivo:"Lorem Impsun Dolor"
@@ -41,7 +44,7 @@ export const reservasCompus = [
         nombreUsuario:"pedro",
         fechaDeInicio:"20/10/22",
         horaDeInicio:"12:30",
-        horaDeFinalizacion:"14:20",
+       idComputadora:"es234",
         cantidadDeComputadoras:5,
         dni:234234,
         motivo:"Lorem Impsun Dolor"    
@@ -53,7 +56,7 @@ export const reservasCompus = [
         nombreUsuario:"pedro",
         fechaDeInicio:"20/10/22",
         horaDeInicio:"12:30",
-        horaDeFinalizacion:"14:20",
+       idComputadora:"es234",
         cantidadDeComputadoras:1,
         dni:234234,
         motivo:"Lorem Impsun Dolor"    
@@ -65,7 +68,7 @@ export const reservasCompus = [
         nombreUsuario:"pedro",
         fechaDeInicio:"20/10/22",
         horaDeInicio:"12:30",
-        horaDeFinalizacion:"14:20",
+       idComputadora:"es234",
         cantidadDeComputadoras:1,
         dni:234234,
         motivo:"Lorem Impsun Dolor"    

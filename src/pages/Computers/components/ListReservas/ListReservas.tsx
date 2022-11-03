@@ -34,6 +34,13 @@ const ListReservas : React.FC<ListReservasInterface> = () => {
             minWidth: 150,
             renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
         },
+        {
+            field: "idComputadora",
+            headerName: "Id de computadoras",
+            flex: 1,
+            minWidth: 150,
+            renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
+        },
 		{
             field: "fechaDeInicio",
             headerName: "Fecha",
@@ -48,13 +55,7 @@ const ListReservas : React.FC<ListReservasInterface> = () => {
             minWidth: 150,
             renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
         },
-		{
-            field: "horaDeFinalizacion",
-            headerName: "Hora de finalizaciòn",
-            flex: 1,
-            minWidth: 150,
-            renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
-        },
+		
 		{
             field: "motivo",
             headerName: "Motivo",

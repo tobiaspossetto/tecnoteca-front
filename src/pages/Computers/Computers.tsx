@@ -1,5 +1,6 @@
-import { compus } from "@/data";
+import { compus, reservasCompus } from "@/data";
 import { getComputers } from "@/redux/states";
+import { getComputersReservations } from "@/redux/states/computerReserve";
 import { Button, Stack } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { IoMdAddCircle } from "react-icons/io";
@@ -15,6 +16,7 @@ const Computers: React.FC<ComputersInterface> = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getComputers(compus))
+    dispatch(getComputersReservations(reservasCompus))
 },[])
   return (
     <div style={{minHeight: "calc(100vh - 150px - 140px)", width:"100%"}}>

@@ -17,8 +17,14 @@ export const computersSlice = createSlice({
         
         getComputers:(state,action) => {
             return action.payload
+        },
+        deleteComputer:(state,action)=>{
+            console.log(action.payload)
+            const result = state.filter((reserv) => reserv.id !== action.payload )
+            console.log(result)
+            return result
         }
-    },
+    }
 });
 
-export const {getComputers} = computersSlice.actions;
+export const {getComputers,deleteComputer} = computersSlice.actions;

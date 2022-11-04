@@ -11,8 +11,14 @@ export const computerReservationSlice = createSlice({
     reducers:{
         getComputersReservations:(state,action)=>{
             return action.payload
+        },
+        deleteReservation:(state,action)=>{
+            console.log(state)
+            const result = state.filter((reserv) => reserv.id !== action.payload )
+            console.log(result)
+            return result
         }
     }
 })
 
-export const {getComputersReservations} = computerReservationSlice.actions
+export const {getComputersReservations,deleteReservation} = computerReservationSlice.actions

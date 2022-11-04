@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DataGrid, GridRenderCellParams } from "@mui/x-data-grid";
 import { reservasCompus } from "@/data";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppStore } from "@/redux/store";
 import {
     Button,
@@ -13,10 +13,12 @@ import {
     IconButton,
 } from "@mui/material";
 import {AiTwotoneDelete} from "react-icons/ai"
+import { deleteReservation } from "@/redux";
 export interface ListReservasInterface {}
 
 const ListReservas: React.FC<ListReservasInterface> = () => {
-
+    const dispatch = useDispatch()
+ 
     const [idToDelete, setIdToDelete] = useState<string|null>(null)
 
     const stateCompusReservations = useSelector((store: AppStore) => {
@@ -29,6 +31,7 @@ const ListReservas: React.FC<ListReservasInterface> = () => {
     };
 
     const handleClose = () => {
+        dispatch(deleteReservation(idToDelete))
         setOpen(false);
     };
 
@@ -46,7 +49,7 @@ const ListReservas: React.FC<ListReservasInterface> = () => {
             field: "id",
             headerName: "Id",
             flex: 1,
-            minWidth: 150,
+            width: 10,
             renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
         },
         {
@@ -54,7 +57,7 @@ const ListReservas: React.FC<ListReservasInterface> = () => {
             headerName: "Eliminar",
             type: "actions",
             sorteable: false,
-            width: 200,
+            width: 100,
             renderCell: (params: GridRenderCellParams) => (
                 <>
                     {

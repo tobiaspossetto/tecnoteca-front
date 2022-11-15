@@ -23,8 +23,11 @@ export const computersSlice = createSlice({
             const result = state.filter((reserv) => reserv.id !== action.payload )
             console.log(result)
             return result
+        },
+        addComputer:(state,action) => {
+            return [...state, action.payload]
         }
     }
 });
 
-export const {getComputers,deleteComputer} = computersSlice.actions;
+export const {getComputers,deleteComputer,addComputer} = computersSlice.actions;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import { Computers, ListComputers } from "./pages";
+import { Computers, Salas } from "./pages";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
@@ -63,13 +63,6 @@ function App() {
             <div className="App">
                 <Navbar />
 
-                {/* <div style={{
-    backgroundRepeat: 'no-repeat',
-    backgroundSize:"cover",
-    backgroundPosition: "bottom",
-    backgroundAttachment: "fixed",
-    width:"100%", height:"700px", backgroundImage:"url('https://arqa.com/wp-content/uploads/2022/07/sergio-panigo-_71s8307.jpg')"}} /> */}
-
                 <Box sx={{ width: "100%" }}>
                     <Box
                         sx={{
@@ -119,7 +112,7 @@ function App() {
                         <Computers />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Item Two
+                       <Salas/>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         Item Three

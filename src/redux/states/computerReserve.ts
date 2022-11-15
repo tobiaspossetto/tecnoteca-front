@@ -17,8 +17,11 @@ export const computerReservationSlice = createSlice({
             const result = state.filter((reserv) => reserv.id !== action.payload )
             console.log(result)
             return result
+        },
+        addReservation:(state,action)=>{
+            return [...state, action.payload]
         }
     }
 })
 
-export const {getComputersReservations,deleteReservation} = computerReservationSlice.actions
+export const {getComputersReservations,deleteReservation,addReservation} = computerReservationSlice.actions

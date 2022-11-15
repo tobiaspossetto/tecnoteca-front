@@ -11,34 +11,35 @@ import {
 
 import React, { useEffect, useState } from "react";
 import "./modalRequerirCompu.css";
+import { useDispatch } from "react-redux";
+import { addReservation } from "@/redux";
 export interface ModalRequerirCompuInterface {}
 
 const ModalRequerirCompu: React.FC<ModalRequerirCompuInterface> = () => {
     const [value, setValue] = useState(20);
-
-    const changeValue = (event: any, value: any) => {
-        setValue(value);
-    };
+    const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
     const [datos, setDatos] = useState({
-        nombre: "",
+        nombreUsuario: "",
         dni: "",
         motivo: "",
-        fecha: "",
-        horaInicio: "",
+        fechaDeInicio: "",
+        horaDeInicio: "",
         cantidadDeComputadoras: "",
     });
+    const changeValue = (event: any, value: any) => {
+        setValue(value);
+        setDatos({ ...datos, cantidadDeComputadoras: value });
+    };
     function valuetext(value: number) {
         return `${value}`;
     }
     const handleClickOpen = () => {
         setOpen(true);
     };
-
     const handleClose = () => {
         setOpen(false);
     };
-
     const handleInputChange = (event: {
         target: {
             getAriaValueText?: any;
@@ -51,10 +52,11 @@ const ModalRequerirCompu: React.FC<ModalRequerirCompuInterface> = () => {
             [event.target.name]: event.target.value,
         });
     };
-
     //Funcion que guarda los datos del form, lleva a redux, y cierra el modal
-    const send = () => {
-
+    const handleCreateReserve = () => {
+        console.log(datos);
+        dispatch(addReservation({ ...datos, id: "100" }));
+        handleClose();
     };
     return (
         <div>
@@ -73,7 +75,7 @@ const ModalRequerirCompu: React.FC<ModalRequerirCompuInterface> = () => {
                             <label>Nombre</label>
                             <input
                                 type="text"
-                                name="nombre"
+                                name="nombreUsuario"
                                 onChange={handleInputChange}
                                 placeholder="Nombre del usuario"
                             />
@@ -100,7 +102,7 @@ const ModalRequerirCompu: React.FC<ModalRequerirCompuInterface> = () => {
                             <label>Fecha</label>
                             <input
                                 type="date"
-                                name="fecha"
+                                name="fechaDeInicio"
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -108,7 +110,7 @@ const ModalRequerirCompu: React.FC<ModalRequerirCompuInterface> = () => {
                             <label>Hora de inicio</label>
                             <input
                                 type="time"
-                                name="horaInicio"
+                                name="horaDeInicio"
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -140,7 +142,11 @@ const ModalRequerirCompu: React.FC<ModalRequerirCompuInterface> = () => {
                     >
                         Cancelar
                     </Button>
-                    <Button onClick={send} variant="contained" color="success">
+                    <Button
+                        onClick={handleCreateReserve}
+                        variant="contained"
+                        color="success"
+                    >
                         Agregar
                     </Button>
                 </DialogActions>

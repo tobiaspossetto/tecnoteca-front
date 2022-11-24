@@ -3,4 +3,7 @@ export * from './Computers/components/ListReservas';
 export * from './Computers/components/ModalComputer';
 export * from './Computers/components/ModalRequerirCompu';
 export * from './Computers';
+export * from './Salas/components/ListReservas';
+export * from './Salas/components/ListSalas';
+export * from './Salas/components';
 export * from './Salas';
